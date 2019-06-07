@@ -1,6 +1,7 @@
 package Singleton_Pattern;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class Singleton {
@@ -18,7 +19,7 @@ public class Singleton {
 
 	private Singleton() {}
 
-	public Singleton getFirstInstance() {
+	public static Singleton getInstance() {
 		if (firstInstance == null) {
 
 			if (firstThread) {
@@ -32,9 +33,22 @@ public class Singleton {
 				}
 			}
 			firstInstance = new Singleton();
+			Collections.shuffle(firstInstance.letterList);
 		}
 		return firstInstance;
 	}
 
+	public LinkedList<String> getLetterList() {
+		return firstInstance.letterList;
+	}
 
+	public LinkedList<String> getTiles(int howManyTiles) {
+		LinkedList<String> tilesToSend = new LinkedList<>();
+
+		for (int i = 0; i < howManyTiles; i++) {
+			tilesToSend.add(letterList.remove(0));
+		}
+
+		return tilesToSend;
+	}
 }
