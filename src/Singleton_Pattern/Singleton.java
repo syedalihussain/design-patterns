@@ -32,8 +32,12 @@ public class Singleton {
 					e.printStackTrace();
 				}
 			}
-			firstInstance = new Singleton();
-			Collections.shuffle(firstInstance.letterList);
+		}
+		synchronized (Singleton.class) {
+			if (firstInstance == null) {
+				firstInstance = new Singleton();
+				Collections.shuffle(firstInstance.letterList);
+			}
 		}
 		return firstInstance;
 	}
