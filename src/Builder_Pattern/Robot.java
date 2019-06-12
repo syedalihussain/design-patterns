@@ -11,9 +11,17 @@ public class Robot implements RobotPlan{
 		robotHead = head;
 	}
 
+	public String getRobotHead() {
+		return robotHead;
+	}
+
 	@Override
 	public void setRobotTorso(String torso) {
 		robotTorso = torso;
+	}
+
+	public String getRobotTorso() {
+		return robotTorso;
 	}
 
 	@Override
@@ -21,8 +29,16 @@ public class Robot implements RobotPlan{
 		robotArms = arms;
 	}
 
+	public String getRobotArms() {
+		return robotArms;
+	}
+
 	@Override
 	public void setRobotLegs(String legs) {
 		robotLegs = legs;
+	}
+
+	public String getRobotLegs() {
+		return robotLegs;
 	}
 }
