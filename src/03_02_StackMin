@@ -1,0 +1,22 @@
+public class MyQueue<T> {
+	private Stack newStack, oldStack;
+
+	public MyQueue() {
+		newStack = new Stack<>();
+		oldStack = new Stack<>();
+	}
+
+	public void push(int value) {
+		newStack.push(value);
+	}
+
+	public int pop() {
+		shiftStacks();
+		return oldStack.pop();
+	}
+
+	public void shiftStacks() {
+		while (!newStack.isEmpty())
+			newStack.push(oldStack.pop());
+	}
+}

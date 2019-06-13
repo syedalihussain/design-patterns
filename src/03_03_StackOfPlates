@@ -1,0 +1,37 @@
+class setOfStacks {
+	private ArrayList<Stack<Integer>> stacks;
+	private int index;
+	private int capacity;
+
+	public setOfSTacks(int capacity) {
+		index = 0;
+		stacks = new ArrayList<>();
+		this.capacity = capacity;
+	}
+
+	public void push(int value) {
+		Stack stack = getLast();
+		if (stack != null && !stack.isFull()) {
+			stack.push(value);
+		} else {
+			stack = new Stack<>();
+			stack.push(value);
+			stacks.add(stack);
+		}
+	}
+
+	public int pop() {
+		Stack stack = getLast();
+		if (stack != null && !stack.isEmpty())
+			return stack.pop();
+		throw new EmptyStackException();
+	}
+
+	public Stack getLast() {
+		return stacks.get(index);
+	}
+
+	public boolean isFull() {
+		return st
+	}
+}
