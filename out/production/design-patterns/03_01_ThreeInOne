@@ -1,0 +1,35 @@
+class Queue {
+	private int[] stacks;
+	private int[] sizes;
+	private int stackCapacity;
+	private int numOfStacks = 3;
+
+	public Queue(int stackSize) {
+		stackCapacity = stackSize;
+		stacks = new int[stackCapacity * numOfStacks];
+		size = new int[numOfStacks];
+	}
+
+	public void push(int value, int stackNum) {
+		if (isFull(stackNum))
+			throw new StackFullException();
+		int index = indexOfTop(stackNum);
+		stacks[index] = value;
+		size[stackNum]++;
+	}
+
+	public int pop(int stackNum) {
+		if (isEmpty(stackNum))
+			throw new EmptyStackException();
+		int index = indexOfTop(stackNum);
+		int value = stacks[index];
+		stacks[index] = 0;
+		sizes[stackNum]--;
+		return value;
+	}
+
+	public int indexOfTop(int stackNum) {
+		int offset = stackCapacity * (stackNum - 1);	//	000,100,320
+		return offset + sizes[stackNum];
+	}
+}
