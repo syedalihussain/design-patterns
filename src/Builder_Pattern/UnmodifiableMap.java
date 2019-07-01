@@ -25,6 +25,7 @@ public class UnmodifiableMap {
 		});
 	}
 
+
 	public static void main(String[] args) {
 		HashMap<Integer, String> doubleBracketMap = new HashMap<>(doubleBracket());
 		System.out.println("Using the double bracket approach: " + doubleBracketMap.get(0));
